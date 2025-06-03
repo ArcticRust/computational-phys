@@ -1,17 +1,13 @@
 function L2proj()
-  x = 0:.5:4;
+  x = 0:.6:10;
   M = create_mass_matrix(x);
   b = create_load_vector(x, @testfunc);
-  Pf = M\b;
-  testx = 0:.05:4;
+  Pf = M \ b;
+  testx = 0:.003:10;
   plot(x, Pf, testx, testfunc(testx));
 
 endfunction
 
-function J = simpson_approx(f, x0, x1)
-  m = (x0 + x1) / 2;
-  J = (f(x0) + 4 * f(m) + f(x1)) * (x1 - x0) / 6;
-endfunction
 
 function b = create_load_vector(x, f)
   n = length(x) - 1;
