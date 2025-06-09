@@ -1,5 +1,5 @@
 function L2proj()
-  x = 0:.6:10;
+  x = 0:.8:10;
   M = create_mass_matrix(x);
   b = create_load_vector(x, @testfunc);
   Pf = M \ b;
